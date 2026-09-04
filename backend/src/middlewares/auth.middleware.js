@@ -10,15 +10,14 @@ const protect = asyncHandler(async (req, res, next) => {
     throw new ApiError(401, 'Not authorized, no token provided');
   }
 
+  let decoded;
   try {
-    const decoded = jwt.verify(token, jwtSecret);
-
-    req.userId = decoded.userId;
-
-    next();
+    decoded = jwt.verify(token, jwtSecret);
   } catch (err) {
     throw new ApiError(401, 'Not authorized, token invalid or expired');
   }
+  req.userId = decoded.userId;
+  next();
 });
 
 module.exports = protect;

@@ -58,7 +58,9 @@ export default function Dashboard() {
           </div>
           <div className='flex items-center gap-3'>
             <span className='hidden text-sm text-muted-foreground sm:inline'>
-              {user?.name}
+              Hello
+              <span className={'font-mono font-extrabold'}>{user?.name}</span>
+              👋
             </span>
             <Button
               variant='outline'

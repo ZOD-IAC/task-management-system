@@ -2,7 +2,7 @@ const asyncHandler = require('../../utils/asyncHandler');
 const ApiResponse = require('../../utils/ApiResponse');
 const authService = require('./auth.service');
 
-const register = async (req, res, next) => {
+const register = asyncHandler(async (req, res, next) => {
   try {
     const result = await authService.register(req.body);
 
@@ -22,9 +22,9 @@ const register = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-};
+});
 
-const login = async (req, res, next) => {
+const login = asyncHandler(async (req, res, next) => {
   try {
     const result = await authService.login(req.body);
 
@@ -44,9 +44,9 @@ const login = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-};
+});
 
-const logout = async (req, res) => {
+const logout = asyncHandler(async (req, res) => {
   res.clearCookie('token', {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
@@ -54,11 +54,11 @@ const logout = async (req, res) => {
   });
 
   res.status(200).json(new ApiResponse(200, null, 'Logout successful'));
-};
+});
 
-const getProfile = async (req, res) => {
+const getProfile = asyncHandler(async (req, res) => {
   const user = await authService.getProfile(req.userId);
   res.status(200).json(new ApiResponse(200, user));
-};
+});
 
 module.exports = { register, login, getProfile, logout };
