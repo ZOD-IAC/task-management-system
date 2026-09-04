@@ -24,6 +24,7 @@ export default function TaskForm({ task, onSuccess, onCancel }) {
   const [form, setForm] = useState(emptyForm);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
+  const taskId = task?.id || task?._id;
 
   useEffect(() => {
     if (task)
@@ -57,7 +58,7 @@ export default function TaskForm({ task, onSuccess, onCancel }) {
       ...(form.dueDate ? { dueDate: form.dueDate } : {}),
     };
     try {
-      if (task) await updateTask(task.id, payload);
+      if (task) await updateTask(taskId, payload);
       else await createTask(payload);
       onSuccess();
     } catch (err) {

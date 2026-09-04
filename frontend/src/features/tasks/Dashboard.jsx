@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useAuth } from '../auth/AuthContext';
 import { useTasks } from './useTasks';
 import Filters from './Filters';
-import TaskList from './TaskList';
+import TaskTable from './TaskTAble';
 import TaskForm from './TaskForm';
 import Pagination from './Pagination';
 import DashboardStats from './DashboardStats';
@@ -89,7 +89,7 @@ export default function Dashboard() {
               {error}
             </div>
           )}
-          <TaskList
+          <TaskTable
             tasks={tasks}
             loading={loading}
             onEdit={openEdit}

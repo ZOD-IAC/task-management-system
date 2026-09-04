@@ -40,7 +40,9 @@ export default function DashboardStats({ refreshKey = 0 }) {
       {stats.map(([label, key]) => (
         <Card key={key}>
           <CardContent className='p-5'>
-            <p className='text-sm font-medium text-muted-foreground'>{label}</p>
+            <p className='text-sm font-medium text-muted-foreground pt-5'>
+              {label}
+            </p>
             {loading ? (
               <Spinner className='mt-3' />
             ) : (

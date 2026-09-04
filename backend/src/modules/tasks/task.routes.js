@@ -14,7 +14,7 @@ router.get('/dashboard', taskController.getDashboardStats);
 router.get('/', taskController.getTasks);
 router.post('/', validate(createTaskSchema), taskController.createTask);
 router.get('/:id', taskController.getTaskById);
-router.put('/:id', validate(updateTaskSchema), taskController.updateTask);
+router.patch('/:id', validate(updateTaskSchema), taskController.updateTask);
 router.delete('/:id', taskController.deleteTask);
 
 module.exports = router;
