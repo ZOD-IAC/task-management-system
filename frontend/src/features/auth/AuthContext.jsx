@@ -5,9 +5,6 @@ const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
-  // Starts true: the token lives in an httpOnly cookie, so the only way
-  // to know if a session exists is to ask the server — there's nothing
-  // to read client-side to short-circuit this check.
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
