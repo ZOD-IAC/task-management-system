@@ -6,7 +6,6 @@ const { createTaskSchema, updateTaskSchema } = require('./task.validator');
 
 const router = express.Router();
 
-// Every task route requires a valid JWT - applied once here rather than
 // repeated on each route.
 router.use(protect);
 

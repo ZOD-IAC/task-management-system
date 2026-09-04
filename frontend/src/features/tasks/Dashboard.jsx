@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { useAuth } from '../auth/AuthContext';
 import { useTasks } from './useTasks';
 import Filters from './Filters';
-import TaskTable from './TaskTAble';
 import TaskForm from './TaskForm';
 import Pagination from './Pagination';
 import DashboardStats from './DashboardStats';
 import { Dialog } from '@/components/ui/Dialog';
 import { Button } from '@/components/ui/Button';
 import { Spinner } from '@/components/ui/Spinner';
+import TaskTable from './TaskTAble';
 
 export default function Dashboard() {
   const { user, logout } = useAuth();

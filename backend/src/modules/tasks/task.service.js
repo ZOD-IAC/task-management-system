@@ -30,11 +30,6 @@ const deleteTask = async (userId, taskId) => {
   return task;
 };
 
-/**
- * Builds the Mongo filter + pagination options from validated query params,
- * then returns both the page of results and the metadata the frontend
- * needs to render pagination controls.
- */
 const listTasks = async (userId, queryParams) => {
   const { search, status, priority, page = 1, limit = DEFAULT_PAGE_SIZE, sortBy = 'createdAt', order = 'desc' } = queryParams;
 

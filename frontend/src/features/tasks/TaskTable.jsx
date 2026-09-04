@@ -1,11 +1,8 @@
 import { useState } from 'react';
-
 import { deleteTask, updateTask } from './tasksApi';
-
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { Spinner } from '@/components/ui/Spinner';
-import { Dialog } from '@/components/ui/Dialog';
 import TaskView from './TaskView';
 import { statusClass, priorityClass } from '../../lib/constants';
 import { formatDate } from '../../lib/utils';
@@ -124,17 +121,6 @@ export default function TaskTable({ tasks, loading, onEdit, onRefresh }) {
                   className='transition-colors hover:bg-muted/30'
                 >
                   {/* Task */}
-                  {/* <td className='max-w-[400px] px-5 py-4'>
-                    <div>
-                      <p className='truncate font-semibold text-foreground'>
-                        {task.title}
-                      </p>
-
-                      <p className='mt-1 truncate text-sm text-muted-foreground'>
-                        {task.description || 'No description.'}
-                      </p>
-                    </div>
-                  </td> */}
                   <td className='max-w-[400px] px-5 py-4'>
                     <button
                       type='button'
